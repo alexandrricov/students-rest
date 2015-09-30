@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="studentDAO" class="com.students.dao.StudentDAOJDBCImpl"/>
+
+    <bean id="studentManager" class="com.students.managers.StudentManagerImpl">
+        <property name="studentDao" ref="studentDAO"></property>
+    </bean>
+
+    <bean id="studentResource" class="com.students.resources.StudentResourceImpl">
+        <property name="studentManager" ref="studentManager"></property>
+    </bean>
+</beans>
